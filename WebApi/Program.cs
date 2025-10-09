@@ -18,7 +18,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultDemo");
 builder.Services.AddDbContext<DataContext>(opt => opt.UseNpgsql(connectionString));
 
 //register Identity 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(config =>
+builder.Services.AddIdentityCore<IdentityUser>(config =>
     {
         config.Password.RequiredLength = 4;
         config.Password.RequireDigit = true;
@@ -26,6 +26,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(config =>
         config.Password.RequireUppercase = true;
         config.Password.RequireLowercase = true;
     })
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<DataContext>()
     .AddDefaultTokenProviders();
 

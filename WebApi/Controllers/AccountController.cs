@@ -1,4 +1,3 @@
-using System.Net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Dtos.Account;
@@ -7,7 +6,7 @@ using WebApi.Services;
 using WebApi.Response;
 namespace WebApi.Controllers;
 
-[Route("[controller]")]
+[Route("/api/[controller]")]
 [Authorize]
 public class AccountController(IAccountService accountService,IQuoteService quoteService) : ControllerBase
 {
@@ -29,21 +28,25 @@ public class AccountController(IAccountService accountService,IQuoteService quot
     }
     
     [HttpGet("get-quotes")]
-    [Produces("application/json")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetQuotes([FromQuery]GetQuoteFilter filter)
     {
         var result = await quoteService.GetQuotes(filter);
         return StatusCode(result.StatusCode,result);
     }
 
-    [HttpPost("AddUserToRole")]
-    public async Task<Response<string>> AddUserToRole(UserRoleDto userRoleDto)
+    [HttpPost("add-user-to-role")]
+    [AllowAnonymous]
+    
+    public async Task<Response<string>> AddUserToRole([FromBody]UserRoleDto userRoleDto)
     {
         return await accountService.AddOrRemoveUserFromRole(userRoleDto,false);
     }
     
     
-    [HttpDelete("DeleteRoleFromUser")]
+    [HttpDelete("delete-user-from-role")]
+    [AllowAnonymous]
+    
     public async Task<Response<string>> DeleteRoleFromUser(UserRoleDto userRoleDto)
     {
         return await accountService.AddOrRemoveUserFromRole(userRoleDto,true);

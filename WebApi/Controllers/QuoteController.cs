@@ -11,11 +11,11 @@ namespace WebApi.Controllers;
 
 
 [ApiController]
-[Route("[controller]")]
-public class QuoteController(IQuoteService quoteService) : Controller
+[Route("/api/[controller]")]
+[Authorize]
+public class QuoteController(IQuoteService quoteService) : ControllerBase
 {
     [HttpGet("get-quotes")]
-    [Authorize]
     public async Task<IActionResult> GetQuotes([FromQuery]GetQuoteFilter filter)
     {
         var result = await quoteService.GetQuotes(filter);
@@ -24,7 +24,6 @@ public class QuoteController(IQuoteService quoteService) : Controller
     
     
     [HttpPost("add-quote")]
-    [Authorize]
     public async Task<IActionResult> AddQuote([FromBody]AddQuoteDto quoteDto)
     {
         if (ModelState.IsValid)
@@ -38,7 +37,6 @@ public class QuoteController(IQuoteService quoteService) : Controller
             var response  =  new Response<GetQuoteDto>(HttpStatusCode.BadRequest, errors);
             return StatusCode(response.StatusCode, response);
         }
-        
     }
     
     
