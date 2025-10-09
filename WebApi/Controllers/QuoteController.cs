@@ -51,7 +51,7 @@ public class QuoteController(IQuoteService quoteService) : Controller
     
     [HttpDelete("delete-quote")]
     [Authorize(Roles = "Admin")]
-    public async Task<IActionResult> AddQuote(int  quoteId)
+    public async Task<IActionResult> DeleteQuote(int quoteId)
     {
       var response = await quoteService.DeleteQuote(quoteId);
       return StatusCode(response.StatusCode, response);
