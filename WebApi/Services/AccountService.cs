@@ -37,22 +37,6 @@ public class AccountService(
         else return new Response<RegisterDto>(HttpStatusCode.BadRequest, response.Errors.Select(e=>e.Description).ToList());
 
     }
-
-    public async Task<Response<string>> AddOrRemoveUserFromRole(UserRoleDto userRole, bool delete = false)
-    {
-        var role = await roleManager.FindByIdAsync(userRole.RoleId);
-        var user = await userManager.FindByIdAsync(userRole.UserId);
-        if (delete == true)
-        {
-            var result = await userManager.RemoveFromRoleAsync(user, role.Name);
-            return new Response<string>(HttpStatusCode.OK, "removed");
-        }
-        var userInRole = await userManager.IsInRoleAsync(user, role.Name);
-        if (userInRole == true) return new Response<string>(HttpStatusCode.BadRequest, "Role exists");
-        await userManager.AddToRoleAsync(user, role.Name);
-        return new Response<string>(HttpStatusCode.OK, "done");
-    }
-    
     
     public async Task<Response<string>> AddRoleToUser(UserRoleDto userRole)
     {
@@ -124,6 +108,11 @@ public class AccountService(
         
         claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
+        var role = await roleManager.FindByNameAsync("Admin");
+        
+        var rolePermission = await roleManager.GetClaimsAsync(role);
+        claims.AddRange(rolePermission.Select(role => new Claim(role.Type,role.Value)));
+        
         
         var token = new JwtSecurityToken(
             issuer: configuration["Jwt:Issuer"],
@@ -158,10 +147,14 @@ public class AccountService(
     {
         var existing = await userManager.FindByEmailAsync(forgotPasswordDto.Email);
         if (existing == null) return new Response<string>(HttpStatusCode.BadRequest, "not found");
+        
         var token = await userManager.GeneratePasswordResetTokenAsync(existing);
         var url =$"http://localhost:5271/account/resetpassword?token={token}&email={forgotPasswordDto.Email}";
-        var message = new MessageDto(new[] { forgotPasswordDto.Email }, "reset password",
-            $"<h1><a href=\"{url}\">reset password</a></h1>");
+        var message = new MessageDto(
+            new[] { forgotPasswordDto.Email }, 
+            "reset password",
+            $"<h1><a href=\"{url}\">reset password</a></h1>"
+            );
         emailService.SendEmail(message,TextFormat.Html);
 
         return new Response<string>(HttpStatusCode.OK, "reset password has been sent");
@@ -181,7 +174,57 @@ public class AccountService(
 
     }
     
+    public async Task<Response<string>> ChangeEmail(string userId, ChangeEmailDto model)
+    {
+        try
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+                return new Response<string>(System.Net.HttpStatusCode.BadRequest, "User not found");
+
+            var checkPassword = await userManager.CheckPasswordAsync(user, model.CurrentPassword);
+            if (!checkPassword)
+                return new Response<string>(System.Net.HttpStatusCode.BadRequest, "Invalid password");
+
+            var token = await userManager.GenerateChangeEmailTokenAsync(user, model.NewEmail);
+          
+            var message = new MessageDto(
+                new[] { model.NewEmail }, 
+                "reset password",
+                $"<p>Click <a href=\"localhost:4200/account/ResetPassword?email={model.NewEmail}&token={token}\">here</a> to reset your password</p>"
+            );
+            emailService.SendEmail(message,TextFormat.Html);
+            
+            return new Response<string>("Please check your new email to confirm the change");
+        }
+        catch (Exception e)
+        {
+            return new Response<string>(System.Net.HttpStatusCode.InternalServerError, e.Message);
+        }
+    }
+
     
+    public async Task<Response<string>> ConfirmEmailChange(string userId, string email, string token)
+    {
+        try
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+                return new Response<string>(System.Net.HttpStatusCode.BadRequest, "User not found");
 
+            var result = await userManager.ChangeEmailAsync(user, email, token);
+            if (result.Succeeded)
+            {
+                await userManager.SetUserNameAsync(user, email);
+                return new Response<string>("Email changed successfully");
+            }
 
+            return new Response<string>(HttpStatusCode.BadRequest, result.Errors.Select(e => e.Description).ToList());
+        }
+        catch (Exception e)
+        {
+            return new Response<string>(HttpStatusCode.InternalServerError, e.Message);
+        }
+    }
+    
 }

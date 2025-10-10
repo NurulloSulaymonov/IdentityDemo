@@ -40,7 +40,7 @@ public class AccountController(IAccountService accountService,IQuoteService quot
     
     public async Task<Response<string>> AddUserToRole([FromBody]UserRoleDto userRoleDto)
     {
-        return await accountService.AddOrRemoveUserFromRole(userRoleDto,false);
+        return await accountService.AddRoleToUser(userRoleDto);
     }
     
     
@@ -49,7 +49,7 @@ public class AccountController(IAccountService accountService,IQuoteService quot
     
     public async Task<Response<string>> DeleteRoleFromUser(UserRoleDto userRoleDto)
     {
-        return await accountService.AddOrRemoveUserFromRole(userRoleDto,true);
+        return await accountService.RemoveRoleFromUser(userRoleDto);
     }
 
   
