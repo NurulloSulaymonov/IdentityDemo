@@ -37,21 +37,6 @@ public class AccountService(
         else return new Response<RegisterDto>(HttpStatusCode.BadRequest, response.Errors.Select(e=>e.Description).ToList());
 
     }
-
-    public async Task<Response<string>> AddOrRemoveUserFromRole(UserRoleDto userRole, bool delete = false)
-    {
-        var role = await roleManager.FindByIdAsync(userRole.RoleId);
-        var user = await userManager.FindByIdAsync(userRole.UserId);
-        if (delete == true)
-        {
-            var result = await userManager.RemoveFromRoleAsync(user, role.Name);
-            return new Response<string>(HttpStatusCode.OK, "removed");
-        }
-        var userInRole = await userManager.IsInRoleAsync(user, role.Name);
-        if (userInRole == true) return new Response<string>(HttpStatusCode.BadRequest, "Role exists");
-        await userManager.AddToRoleAsync(user, role.Name);
-        return new Response<string>(HttpStatusCode.OK, "done");
-    }
     
     
     public async Task<Response<string>> AddRoleToUser(UserRoleDto userRole)
@@ -115,13 +100,6 @@ public class AccountService(
 
         //add roles
         var roles = await userManager.GetRolesAsync(user);
-        var list = new List<Claim>();
-        // foreach (var role in roles)
-        // {
-        //     list.Add(new Claim(ClaimTypes.Role, role));
-        // }
-        // claims.AddRange(list);
-        
         claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
         
@@ -158,8 +136,10 @@ public class AccountService(
     {
         var existing = await userManager.FindByEmailAsync(forgotPasswordDto.Email);
         if (existing == null) return new Response<string>(HttpStatusCode.BadRequest, "not found");
+        
         var token = await userManager.GeneratePasswordResetTokenAsync(existing);
-        var url =$"http://localhost:5271/account/resetpassword?token={token}&email={forgotPasswordDto.Email}";
+        var url =$"http://localhost:5282/account/resetpassword?token={token}&email={forgotPasswordDto.Email}";
+       
         var message = new MessageDto(new[] { forgotPasswordDto.Email }, "reset password",
             $"<h1><a href=\"{url}\">reset password</a></h1>");
         emailService.SendEmail(message,TextFormat.Html);

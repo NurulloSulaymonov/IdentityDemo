@@ -16,6 +16,7 @@ namespace WebApi.Controllers;
 public class QuoteController(IQuoteService quoteService) : ControllerBase
 {
     [HttpGet("get-quotes")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetQuotes([FromQuery]GetQuoteFilter filter)
     {
         var result = await quoteService.GetQuotes(filter);
@@ -41,7 +42,6 @@ public class QuoteController(IQuoteService quoteService) : ControllerBase
     
     
     [HttpPut("update-quote")]
-    [Authorize(Roles = "Admin,Manager")]
     public async Task<Response<GetQuoteDto>> UpdateQuote(AddQuoteDto quoteDto)
     {
         return await quoteService.UpdateQuote(quoteDto);
