@@ -8,6 +8,7 @@ using MimeKit.Text;
 using WebApi.Data;
 using WebApi.Dtos;
 using WebApi.Dtos.Account;
+using WebApi.Permissions;
 using WebApi.Response;
 
 namespace WebApi.Services;
@@ -94,25 +95,20 @@ public class AccountService(
         {
             new Claim(ClaimTypes.Name, user.UserName!),
             new Claim(ClaimTypes.Email, user.Email!),
-            new Claim(ClaimTypes.NameIdentifier, user.Id),
+            new Claim(ClaimTypes.NameIdentifier, user.Id)
         };
-
+        
         //add roles
         var roles = await userManager.GetRolesAsync(user);
-        var list = new List<Claim>();
-        // foreach (var role in roles)
-        // {
-        //     list.Add(new Claim(ClaimTypes.Role, role));
-        // }
-        // claims.AddRange(list);
-        
-        claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+       claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
-        var role = await roleManager.FindByNameAsync("Admin");
-        
-        var rolePermission = await roleManager.GetClaimsAsync(role);
-        claims.AddRange(rolePermission.Select(role => new Claim(role.Type,role.Value)));
-        
+       foreach (var role in roles)
+       {
+           var roleEntity = await roleManager.FindByNameAsync(role);
+           var rolePermission = await roleManager.GetClaimsAsync(roleEntity);
+           claims.AddRange(rolePermission.Select(role => new Claim(role.Type,role.Value)));
+       }
+       
         
         var token = new JwtSecurityToken(
             issuer: configuration["Jwt:Issuer"],

@@ -71,15 +71,14 @@ public class PermissionService : IPermissionService
 
         var claims = await _roleManager.GetClaimsAsync(role);
         var existing = claims.FirstOrDefault(c => c.Type == permission.Type && c.Value == permission.Value);
-
-        IdentityResult result;
+        
 
         if (permission.Selected)
         {
             // Add if not exists
             if (existing == null)
             {
-                result = await _roleManager.AddClaimAsync(role, new Claim(permission.Type, permission.Value));
+               var  result = await _roleManager.AddClaimAsync(role, new Claim(permission.Type, permission.Value));
                 if (!result.Succeeded)
                     return new Response<RoleClaimDto>(HttpStatusCode.InternalServerError, result.Errors.Select(e => e.Description).ToList());
             }
@@ -89,7 +88,7 @@ public class PermissionService : IPermissionService
             // Remove if exists
             if (existing != null)
             {
-                result = await _roleManager.RemoveClaimAsync(role, existing); // use existing claim!
+                var result = await _roleManager.RemoveClaimAsync(role, existing); // use existing claim!
                 if (!result.Succeeded)
                     return new Response<RoleClaimDto>(HttpStatusCode.InternalServerError, result.Errors.Select(e => e.Description).ToList());
             }

@@ -28,7 +28,7 @@ public class AccountController(IAccountService accountService,IQuoteService quot
     }
     
     [HttpGet("get-quotes")]
-    [AllowAnonymous]
+    [Authorize]
     public async Task<IActionResult> GetQuotes([FromQuery]GetQuoteFilter filter)
     {
         var result = await quoteService.GetQuotes(filter);

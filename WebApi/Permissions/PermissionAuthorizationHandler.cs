@@ -20,14 +20,14 @@ public class PermissionAuthorizationHandler : AuthorizationHandler<PermissionReq
     {
         _logger.LogWarning("Evaluating authorization requirement for permission {permission}", requirement.Permission);
         var user = context.User;   
-        var userId = user.Claims.FirstOrDefault(x=>x.Type == ClaimTypes.NameIdentifier)?.Value;
-        if(userId == null)
-            return Task.CompletedTask;
+        // var userId = user.Claims.FirstOrDefault(x=>x.Type == ClaimTypes.NameIdentifier)?.Value;
+        // if(userId == null)
+        //     return Task.CompletedTask;
 
         foreach (Claim claim in context.User.Claims)
         {
-            if (claim.Type != "Permissions" || claim.Value != requirement.Permission)
-                continue;
+           // if (claim.Type != "Permissions" || claim.Value != requirement.Permission)
+             //   continue;
             
             if (claim.Type == "Permissions" && claim.Value == requirement.Permission)
             {
