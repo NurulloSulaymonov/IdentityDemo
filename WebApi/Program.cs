@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
@@ -8,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using WebApi.Data;
 using WebApi.Dtos.Account;
+using WebApi.Permissions;
 using WebApi.Seed;
 using WebApi.Services;
 
@@ -16,6 +18,9 @@ var builder = WebApplication.CreateBuilder(args);
 //register dbcontext
 var connectionString = builder.Configuration.GetConnectionString("DefaultDemo");
 builder.Services.AddDbContext<DataContext>(opt => opt.UseNpgsql(connectionString));
+
+builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizeHandler>();
+builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyBuilder > ();
 
 //register Identity 
 builder.Services.AddIdentityCore<IdentityUser>(config =>

@@ -96,6 +96,7 @@ public class AccountService(
             new Claim(ClaimTypes.Name, user.UserName!),
             new Claim(ClaimTypes.Email, user.Email!),
             new Claim(ClaimTypes.NameIdentifier, user.Id),
+            // new Claim("Permissions", "Quote.Delete")
         };
 
         //add roles

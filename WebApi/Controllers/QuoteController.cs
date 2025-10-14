@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Dtos;
 using WebApi.Filters;
+using WebApi.Permissions;
 using WebApi.Response;
 using WebApi.Services;
 
@@ -48,7 +49,7 @@ public class QuoteController(IQuoteService quoteService) : ControllerBase
     }
     
     [HttpDelete("delete-quote")]
-    [Authorize(Roles = "Admin")]
+    [PermissionAuthorize("Quote.Delete")]
     public async Task<IActionResult> DeleteQuote(int quoteId)
     {
       var response = await quoteService.DeleteQuote(quoteId);
