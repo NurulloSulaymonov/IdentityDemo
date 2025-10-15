@@ -25,6 +25,8 @@ builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProv
 builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
 
 
+builder.Services.AddMemoryCache();
+
 //register Identity 
 builder.Services.AddIdentityCore<IdentityUser>(config =>
     {

@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using WebApi.Data;
 using WebApi.Dtos.RoleClaims;
 using WebApi.Filters;
@@ -15,11 +16,13 @@ public class PermissionService : IPermissionService
 {
     private readonly RoleManager<IdentityRole> _roleManager;
     private readonly DataContext _context;
+    private readonly IMemoryCache _cache;
 
-    public PermissionService(RoleManager<IdentityRole> roleManager, DataContext context)
+    public PermissionService(RoleManager<IdentityRole> roleManager, DataContext context, IMemoryCache cache)
     {
         _roleManager = roleManager;
         _context = context;
+        _cache = cache;
     } 
     
     //get all permissions by roleId
@@ -78,8 +81,12 @@ public class PermissionService : IPermissionService
             // Add if not exists
             if (existing == null)
             {
+                permission.RoleId = role.Id;
                var  result = await _roleManager.AddClaimAsync(role, new Claim(permission.Type, permission.Value));
-                if (!result.Succeeded)
+               if (result.Succeeded)
+                   UpdateRoleClaimInCache(permission);
+                
+               if (!result.Succeeded)
                     return new Response<RoleClaimDto>(HttpStatusCode.InternalServerError, result.Errors.Select(e => e.Description).ToList());
             }
         }
@@ -95,6 +102,20 @@ public class PermissionService : IPermissionService
         }
 
         return new Response<RoleClaimDto>(permission);  
+    }
+
+    private void UpdateRoleClaimInCache(RoleClaimDto permission)
+    {
+        const string cacheKey = "permissions";
+
+        if (_cache.TryGetValue(cacheKey, out List<RoleClaimDto> permissions))
+        {
+            if (!permissions.Any(e => e.Value == permission.Value))
+            {
+                permissions.Add(permission);
+            }
+            _cache.Set(cacheKey, permissions);
+        }
     }
 
     public async Task<Response<List<RoleDto>>> GetRoles()
