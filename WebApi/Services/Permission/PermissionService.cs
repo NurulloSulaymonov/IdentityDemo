@@ -96,6 +96,9 @@ public class PermissionService : IPermissionService
             if (existing != null)
             {
                 var result = await _roleManager.RemoveClaimAsync(role, existing); // use existing claim!
+                if (result.Succeeded)
+                    UpdateRoleClaimInCache(permission, deleted: true);
+
                 if (!result.Succeeded)
                     return new Response<RoleClaimDto>(HttpStatusCode.InternalServerError, result.Errors.Select(e => e.Description).ToList());
             }
@@ -104,12 +107,21 @@ public class PermissionService : IPermissionService
         return new Response<RoleClaimDto>(permission);  
     }
 
-    private void UpdateRoleClaimInCache(RoleClaimDto permission)
+    private void UpdateRoleClaimInCache(RoleClaimDto permission, bool deleted=false)
     {
         const string cacheKey = "permissions";
 
         if (_cache.TryGetValue(cacheKey, out List<RoleClaimDto> permissions))
         {
+            if (deleted)
+            {
+                var existing =
+                    permissions.FirstOrDefault(e => e.Type == permission.Type && e.Value == permission.Value);
+                if (existing is not null)
+                {
+                    permissions.Remove(existing);
+                }
+            }
             if (!permissions.Any(e => e.Value == permission.Value))
             {
                 permissions.Add(permission);
