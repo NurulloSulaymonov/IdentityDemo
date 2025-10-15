@@ -37,6 +37,7 @@ public class PermissionService : IPermissionService
         foreach (var permission in allPermissions)
         {
             permission.RoleId = role.Id;
+            permission.Role = role.Name;
             permission.Selected = roleClaims.Any(c => c.Value == permission.Value);
         }
 
@@ -111,8 +112,8 @@ public class PermissionService : IPermissionService
     {
         const string cacheKey = "permissions";
 
-        if (_cache.TryGetValue(cacheKey, out List<RoleClaimDto> permissions))
-        {
+       var result =  _cache.TryGetValue(cacheKey, out List<RoleClaimDto> permissions);
+       if (result == false) permissions = new List<RoleClaimDto>(); 
             if (deleted)
             {
                 var existing =
@@ -127,7 +128,7 @@ public class PermissionService : IPermissionService
                 permissions.Add(permission);
             }
             _cache.Set(cacheKey, permissions);
-        }
+        
     }
 
     public async Task<Response<List<RoleDto>>> GetRoles()
