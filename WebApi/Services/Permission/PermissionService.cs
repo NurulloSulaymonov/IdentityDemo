@@ -123,10 +123,11 @@ public class PermissionService : IPermissionService
                     permissions.Remove(existing);
                 }
             }
-            if (!permissions.Any(e => e.Value == permission.Value))
-            {
+            else
+            { 
                 permissions.Add(permission);
             }
+           
             _cache.Set(cacheKey, permissions);
         
     }

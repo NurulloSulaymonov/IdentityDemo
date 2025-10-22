@@ -1,0 +1,42 @@
+﻿services:
+  api:
+    image: nurullo/demo-webapp-identity
+    container_name: demo-webapp-identity
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: WebApi/Dockerfile
+    ports:
+      - "8010:8083"
+    volumes:
+      - uploads:/app/wwwroot/uploads
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8083
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=IdentityDbDemo;Username=postgres;Password=12345
+    networks:
+      - postgres-network
+  db:
+    image: postgres:17-alpine
+    container_name: demo-db-identity
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    ports:
+      - "5400:5432"
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge
+    
+volumes:
+    postgresql-data:
+    uploads:
+

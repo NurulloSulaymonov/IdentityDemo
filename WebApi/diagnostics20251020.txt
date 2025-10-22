@@ -1,0 +1,152 @@
+2025-10-20 19:35:53.035 +05:00 [ERR] An error occurred using the connection to database '' on server ''.
+2025-10-20 19:35:53.203 +05:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2025-10-20 19:35:53.305 +05:00 [INF] User profile is available. Using '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-10-20 19:35:53.319 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-12cd8373-9343-485a-b481-1bc3286e3721.xml'.
+2025-10-20 19:35:53.324 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-fc94f620-963d-4c58-a486-7169c33128a7.xml'.
+2025-10-20 19:35:53.325 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-5ce73637-5fe2-447b-8f95-350b420686c4.xml'.
+2025-10-20 19:35:53.325 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-2852aaae-dde2-4d06-b216-4a3a8cb0241b.xml'.
+2025-10-20 19:35:53.326 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-2951c49b-a660-4713-b2af-a45cf048694c.xml'.
+2025-10-20 19:35:53.326 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-f309e7e1-db24-40f5-9981-06d4b0b2a7cf.xml'.
+2025-10-20 19:35:53.327 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-f59ef3bc-4929-42a1-80dd-bfbd854c4ba3.xml'.
+2025-10-20 19:35:53.327 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-9e7d134e-ed4d-4650-bcff-8222d1acf67a.xml'.
+2025-10-20 19:35:53.328 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-7100958b-f88c-439d-b34f-cc684699d88e.xml'.
+2025-10-20 19:35:53.328 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-16c4332c-20c2-4034-b322-b1bc16302d06.xml'.
+2025-10-20 19:35:53.329 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-6808a970-d55b-4a52-a024-6df5e285aca6.xml'.
+2025-10-20 19:35:53.330 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-d3271e84-2498-41fe-8d84-139a15496708.xml'.
+2025-10-20 19:35:53.330 +05:00 [DBG] Reading data from file '/Users/nurullosulaymonov/.aspnet/DataProtection-Keys/key-a3a2986e-a39f-4c06-b718-e066d319c560.xml'.
+2025-10-20 19:35:53.337 +05:00 [DBG] Found key {12cd8373-9343-485a-b481-1bc3286e3721}.
+2025-10-20 19:35:53.342 +05:00 [DBG] Found key {fc94f620-963d-4c58-a486-7169c33128a7}.
+2025-10-20 19:35:53.342 +05:00 [DBG] Found key {5ce73637-5fe2-447b-8f95-350b420686c4}.
+2025-10-20 19:35:53.342 +05:00 [DBG] Found key {2852aaae-dde2-4d06-b216-4a3a8cb0241b}.
+2025-10-20 19:35:53.342 +05:00 [DBG] Found key {2951c49b-a660-4713-b2af-a45cf048694c}.
+2025-10-20 19:35:53.342 +05:00 [DBG] Found key {f309e7e1-db24-40f5-9981-06d4b0b2a7cf}.
+2025-10-20 19:35:53.342 +05:00 [DBG] Found key {f59ef3bc-4929-42a1-80dd-bfbd854c4ba3}.
+2025-10-20 19:35:53.343 +05:00 [DBG] Found key {9e7d134e-ed4d-4650-bcff-8222d1acf67a}.
+2025-10-20 19:35:53.343 +05:00 [DBG] Found key {7100958b-f88c-439d-b34f-cc684699d88e}.
+2025-10-20 19:35:53.343 +05:00 [DBG] Found key {16c4332c-20c2-4034-b322-b1bc16302d06}.
+2025-10-20 19:35:53.343 +05:00 [DBG] Found key {6808a970-d55b-4a52-a024-6df5e285aca6}.
+2025-10-20 19:35:53.343 +05:00 [DBG] Found key {d3271e84-2498-41fe-8d84-139a15496708}.
+2025-10-20 19:35:53.343 +05:00 [DBG] Found key {a3a2986e-a39f-4c06-b718-e066d319c560}.
+2025-10-20 19:35:53.347 +05:00 [DBG] Considering key {2852aaae-dde2-4d06-b216-4a3a8cb0241b} with expiration date 2026-01-01 13:30:51Z as default key.
+2025-10-20 19:35:53.351 +05:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-10-20 19:35:53.354 +05:00 [DBG] Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2025-10-20 19:35:53.354 +05:00 [DBG] Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2025-10-20 19:35:53.358 +05:00 [DBG] Using key {2852aaae-dde2-4d06-b216-4a3a8cb0241b} as the default key.
+2025-10-20 19:35:53.358 +05:00 [DBG] Key ring with default key {2852aaae-dde2-4d06-b216-4a3a8cb0241b} was loaded during application startup.
+2025-10-20 19:35:53.395 +05:00 [DBG] Middleware configuration started with options: {AllowedHosts = *, AllowEmptyHosts = True, IncludeFailureMessage = True}
+2025-10-20 19:35:53.397 +05:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2025-10-20 19:35:53.828 +05:00 [INF] Now listening on: https://localhost:7050
+2025-10-20 19:35:53.828 +05:00 [INF] Now listening on: http://localhost:5282
+2025-10-20 19:35:53.828 +05:00 [DBG] Loaded hosting startup assembly WebApi
+2025-10-20 19:35:53.828 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-20 19:35:53.828 +05:00 [INF] Hosting environment: Development
+2025-10-20 19:35:53.828 +05:00 [INF] Content root path: /Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi
+2025-10-20 19:36:05.717 +05:00 [DBG] Connection id "0HNGFSO06NLRN" accepted.
+2025-10-20 19:36:05.719 +05:00 [DBG] Connection id "0HNGFSO06NLRN" started.
+2025-10-20 19:36:05.789 +05:00 [DBG] Connection 0HNGFSO06NLRN established using the following protocol: "Tls12"
+2025-10-20 19:36:05.837 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7050/QuoteDemo/get-quotes - null null
+2025-10-20 19:36:05.860 +05:00 [DBG] 1 candidate(s) found for the request path '/QuoteDemo/get-quotes'
+2025-10-20 19:36:05.862 +05:00 [DBG] Endpoint 'WebApi.Controllers.QuoteDemoController.GetQuotes (WebApi)' with route pattern 'QuoteDemo/get-quotes' is valid for the request path '/QuoteDemo/get-quotes'
+2025-10-20 19:36:05.863 +05:00 [DBG] Request matched endpoint 'WebApi.Controllers.QuoteDemoController.GetQuotes (WebApi)'
+2025-10-20 19:36:05.937 +05:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2025-10-20 19:36:05.939 +05:00 [INF] Executing endpoint 'WebApi.Controllers.QuoteDemoController.GetQuotes (WebApi)'
+2025-10-20 19:36:05.955 +05:00 [INF] Route matched with {action = "GetQuotes", controller = "QuoteDemo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetQuotes(WebApi.Filters.GetQuoteFilter) on controller WebApi.Controllers.QuoteDemoController (WebApi).
+2025-10-20 19:36:05.957 +05:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-10-20 19:36:05.957 +05:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2025-10-20 19:36:05.957 +05:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2025-10-20 19:36:05.957 +05:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-10-20 19:36:05.957 +05:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2025-10-20 19:36:05.959 +05:00 [DBG] Executing controller factory for controller WebApi.Controllers.QuoteDemoController (WebApi)
+2025-10-20 19:36:05.960 +05:00 [DBG] Executed controller factory for controller WebApi.Controllers.QuoteDemoController (WebApi)
+2025-10-20 19:36:05.967 +05:00 [DBG] Attempting to bind parameter 'filter' of type 'WebApi.Filters.GetQuoteFilter' ...
+2025-10-20 19:36:05.968 +05:00 [DBG] Attempting to bind parameter 'filter' of type 'WebApi.Filters.GetQuoteFilter' using the name '' in request data ...
+2025-10-20 19:36:05.971 +05:00 [DBG] Attempting to bind property 'WebApi.Filters.GetQuoteFilter.Author' of type 'System.String' using the name 'Author' in request data ...
+2025-10-20 19:36:05.971 +05:00 [DBG] Could not find a value in the request with name 'Author' for binding property 'WebApi.Filters.GetQuoteFilter.Author' of type 'System.String'.
+2025-10-20 19:36:05.971 +05:00 [DBG] Done attempting to bind property 'WebApi.Filters.GetQuoteFilter.Author' of type 'System.String'.
+2025-10-20 19:36:05.972 +05:00 [DBG] Attempting to bind property 'WebApi.Filters.GetQuoteFilter.QuoteText' of type 'System.String' using the name 'QuoteText' in request data ...
+2025-10-20 19:36:05.972 +05:00 [DBG] Could not find a value in the request with name 'QuoteText' for binding property 'WebApi.Filters.GetQuoteFilter.QuoteText' of type 'System.String'.
+2025-10-20 19:36:05.972 +05:00 [DBG] Done attempting to bind property 'WebApi.Filters.GetQuoteFilter.QuoteText' of type 'System.String'.
+2025-10-20 19:36:05.973 +05:00 [DBG] Attempting to bind property 'WebApi.Filters.GetQuoteFilter.PageNumber' of type 'System.Int32' using the name 'PageNumber' in request data ...
+2025-10-20 19:36:05.973 +05:00 [DBG] Could not find a value in the request with name 'PageNumber' for binding property 'WebApi.Filters.GetQuoteFilter.PageNumber' of type 'System.Int32'.
+2025-10-20 19:36:05.973 +05:00 [DBG] Done attempting to bind property 'WebApi.Filters.GetQuoteFilter.PageNumber' of type 'System.Int32'.
+2025-10-20 19:36:05.973 +05:00 [DBG] Attempting to bind property 'WebApi.Filters.GetQuoteFilter.PageSize' of type 'System.Int32' using the name 'PageSize' in request data ...
+2025-10-20 19:36:05.973 +05:00 [DBG] Could not find a value in the request with name 'PageSize' for binding property 'WebApi.Filters.GetQuoteFilter.PageSize' of type 'System.Int32'.
+2025-10-20 19:36:05.973 +05:00 [DBG] Done attempting to bind property 'WebApi.Filters.GetQuoteFilter.PageSize' of type 'System.Int32'.
+2025-10-20 19:36:05.973 +05:00 [DBG] Done attempting to bind parameter 'filter' of type 'WebApi.Filters.GetQuoteFilter'.
+2025-10-20 19:36:05.973 +05:00 [DBG] Done attempting to bind parameter 'filter' of type 'WebApi.Filters.GetQuoteFilter'.
+2025-10-20 19:36:05.973 +05:00 [DBG] Attempting to validate the bound parameter 'filter' of type 'WebApi.Filters.GetQuoteFilter' ...
+2025-10-20 19:36:05.978 +05:00 [DBG] Done attempting to validate the bound parameter 'filter' of type 'WebApi.Filters.GetQuoteFilter'.
+2025-10-20 19:36:05.983 +05:00 [INF] Executing action method WebApi.Controllers.QuoteDemoController.GetQuotes (WebApi) - Validation state: "Valid"
+2025-10-20 19:36:10.618 +05:00 [INF] This is from information level
+2025-10-20 19:36:14.246 +05:00 [WRN] This is from warning level
+2025-10-20 19:36:14.544 +05:00 [ERR] An error occurred using the connection to database '' on server ''.
+2025-10-20 19:36:14.573 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'WebApi.Data.DataContext'.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Npgsql.ThrowHelper.ThrowInvalidOperationException(String message)
+   at Npgsql.NpgsqlConnection.Open(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Npgsql.ThrowHelper.ThrowInvalidOperationException(String message)
+   at Npgsql.NpgsqlConnection.Open(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2025-10-20 19:36:14.652 +05:00 [INF] Executed action WebApi.Controllers.QuoteDemoController.GetQuotes (WebApi) in 8692.896ms
+2025-10-20 19:36:14.659 +05:00 [INF] Executed endpoint 'WebApi.Controllers.QuoteDemoController.GetQuotes (WebApi)'
+2025-10-20 19:36:14.660 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Npgsql.ThrowHelper.ThrowInvalidOperationException(String message)
+   at Npgsql.NpgsqlConnection.Open(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at lambda_method24(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteCore[TResult](Expression query, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at WebApi.Services.QuoteService.GetQuotes(GetQuoteFilter filter) in /Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/Services/QuoteService.cs:line 31
+   at WebApi.Controllers.QuoteDemoController.GetQuotes(GetQuoteFilter filter) in /Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/Controllers/QuoteDemoController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-10-20 19:36:14.687 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7050/QuoteDemo/get-quotes - 500 null text/plain; charset=utf-8 8850.995ms
+2025-10-20 19:36:15.483 +05:00 [DBG] Connection id "0HNGFSO06NLRN" received FIN.
+2025-10-20 19:36:15.484 +05:00 [DBG] The connection queue processing loop for 0HNGFSO06NLRN completed.
+2025-10-20 19:36:15.486 +05:00 [DBG] Connection id "0HNGFSO06NLRN" is closed. The last processed stream ID was 1.
+2025-10-20 19:36:15.487 +05:00 [DBG] Connection id "0HNGFSO06NLRN" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-10-20 19:36:15.494 +05:00 [DBG] Connection id "0HNGFSO06NLRN" stopped.

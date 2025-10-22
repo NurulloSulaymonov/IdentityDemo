@@ -170,3 +170,13 @@
 /Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/obj/Debug/net9.0/WebApi.pdb
 /Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/obj/Debug/net9.0/WebApi.genruntimeconfig.cache
 /Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/obj/Debug/net9.0/ref/WebApi.dll
+/Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/bin/Debug/net9.0/WebApi.staticwebassets.runtime.json
+/Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/bin/Debug/net9.0/Serilog.dll
+/Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/bin/Debug/net9.0/Serilog.AspNetCore.dll
+/Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/bin/Debug/net9.0/Serilog.Extensions.Hosting.dll
+/Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/bin/Debug/net9.0/Serilog.Extensions.Logging.dll
+/Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/bin/Debug/net9.0/Serilog.Formatting.Compact.dll
+/Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/bin/Debug/net9.0/Serilog.Settings.Configuration.dll
+/Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/bin/Debug/net9.0/Serilog.Sinks.Console.dll
+/Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/bin/Debug/net9.0/Serilog.Sinks.Debug.dll
+/Users/nurullosulaymonov/Documents/CourseMaterials/dotnet_course/course/week10/Day4/IdentityAPI/WebApi/bin/Debug/net9.0/Serilog.Sinks.File.dll

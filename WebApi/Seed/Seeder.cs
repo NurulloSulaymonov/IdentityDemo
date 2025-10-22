@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Caching.Memory;
 using WebApi.Data;
+using WebApi.Dtos.RoleClaims;
 
 namespace WebApi.Seed;
 
@@ -8,12 +10,18 @@ public class Seeder
     private readonly DataContext _context;
     private readonly UserManager<IdentityUser> _userManager;
     private readonly RoleManager<IdentityRole> _roleManager;
+    private readonly ILogger<Seeder> _logger;
+    private readonly IMemoryCache _memoryCache;
 
-    public Seeder(DataContext context, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+    public Seeder(DataContext context, UserManager<IdentityUser> userManager, 
+        RoleManager<IdentityRole> roleManager,
+        ILogger<Seeder>logger, IMemoryCache memoryCache)
     {
         _context = context;
         _userManager = userManager;
         _roleManager = roleManager;
+        _logger = logger;
+        _memoryCache = memoryCache;
     }
 
     public async Task SeedRole()
@@ -38,21 +46,42 @@ public class Seeder
         }
     }
 
+
+    public async Task RestorePermissions()
+    {
+        var roles = _roleManager.Roles.ToList();
+        var permissionsInCache = new List<RoleClaimDto>();
+        foreach (var role in roles)
+        {
+            var permissions = await _roleManager.GetClaimsAsync(role);
+            permissionsInCache.AddRange(permissions.Select(e=>new RoleClaimDto(e.Type,e.Value,role.Id,role.Name!)));
+        }
+
+        _memoryCache.Set("permissions", permissionsInCache);
+    }
+
     public async Task SeedUser()
     {
-        var existing = await _userManager.FindByNameAsync("admin");
-        if (existing is not null) return;
-        
-        var identity = new IdentityUser()
+        try
         {
-            UserName = "admin",
-            PhoneNumber = "13456777",
-            Email = "admin@gmail.com"
-        };
+            var existing = await _userManager.FindByNameAsync("admin");
+            if (existing is not null) return;
 
-        var result = await _userManager.CreateAsync(identity, "hello123");
-        await _userManager.AddToRoleAsync(identity, Roles.Admin);
-        return;
+            var identity = new IdentityUser()
+            {
+                UserName = "admin",
+                PhoneNumber = "13456777",
+                Email = "admin@gmail.com"
+            };
+
+            var result = await _userManager.CreateAsync(identity, "hello123");
+            await _userManager.AddToRoleAsync(identity, Roles.Admin);
+            return;
+        }
+        catch (Exception ex)
+        {
+           _logger.LogError(ex.StackTrace);
+        }
     }
     
    
